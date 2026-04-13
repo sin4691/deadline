@@ -2,6 +2,8 @@
 # Object files
 *.o
 *.obj
+/*.cs
+/*.txt
 
 # Precompiled Headers
 *.gch
@@ -80,6 +82,7 @@ playground.xcworkspace
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /[Mm]emory[Cc]aptures/
+.vsconfig
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

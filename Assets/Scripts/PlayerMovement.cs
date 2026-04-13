@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private bool isRunning;
     private bool isCrouching;
+    private Animator animator;
 
     [Header("Look")]
     [SerializeField] private Transform cam;
@@ -27,9 +28,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float crouchHeight = 0.9f;
     [SerializeField] private float cameraStandY = 1.6f;
     [SerializeField] private float cameraCrouchY = 0.7f;
+    [SerializeField] private float crouchSmoothSpeed = 10f;
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
         HandleCrouch(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -38,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerLook();
         PlayerMove();
+        UpdateCameraHeight();
     }
     private void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
     private void OnLook(InputValue value) => lookInput = value.Get<Vector2>();
@@ -57,13 +61,18 @@ public class PlayerMovement : MonoBehaviour
     private void PlayerMove()
     {
         if (controller.isGrounded && velocity.y < 0)
-            velocity.y = -2f; 
+            velocity.y = -2f;
         float targetSpeed = isCrouching ? crouchSpeed : (isRunning ? runSpeed : walkSpeed);
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * targetSpeed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        bool isMoving = moveInput.magnitude > 0.1f;
+
+        animator.SetBool("isWalking", isMoving && !isRunning && !isCrouching);
+        animator.SetBool("isRunning", isMoving && isRunning && !isCrouching);
+        animator.SetBool("isCrouching", isCrouching);
     }
     private void HandleCrouch(bool pressed)
     {
@@ -73,9 +82,12 @@ public class PlayerMovement : MonoBehaviour
 
         controller.height = targetHeight;
         controller.center = new Vector3(0, targetCenterY, 0);
-
-        Vector3 camPos = cam.localPosition;
-        camPos.y = isCrouching ? cameraCrouchY : cameraStandY;
-        cam.localPosition = camPos;
+    }
+    private void UpdateCameraHeight()
+    {
+        float targetCamY = isCrouching ? cameraCrouchY : cameraStandY;
+        Vector3 currentCamPos = cam.localPosition;
+        currentCamPos.y = Mathf.Lerp(currentCamPos.y, targetCamY, crouchSmoothSpeed * Time.deltaTime);
+        cam.localPosition = currentCamPos;
     }
 }
