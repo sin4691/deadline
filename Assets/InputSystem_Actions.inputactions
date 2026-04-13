@@ -39,7 +39,7 @@
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -91,6 +91,15 @@
                     "name": "Flashlight",
                     "type": "Button",
                     "id": "cd0b8d9a-4422-4009-b5b5-79324a79949e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Drop",
+                    "type": "Button",
+                    "id": "a89bc2a0-c1ce-4953-936d-3b6c9750f08b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -332,7 +341,7 @@
                 {
                     "name": "",
                     "id": "cbac6039-9c09-46a1-b5f2-4e5124ccb5ed",
-                    "path": "<Keyboard>/2",
+                    "path": "<Mouse>/scroll/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -420,7 +429,7 @@
                 {
                     "name": "",
                     "id": "1534dc16-a6aa-499d-9c3a-22b47347b52a",
-                    "path": "<Keyboard>/1",
+                    "path": "<Mouse>/scroll/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -491,6 +500,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f23b7144-533e-4614-a624-ff2dc3a89098",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
