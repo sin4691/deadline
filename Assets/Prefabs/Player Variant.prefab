@@ -163,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 4176470196324757030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -222,6 +222,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+      propertyPath: m_SpotAngle
+      value: 95.94831
+      objectReference: {fileID: 0}
+    - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 80.664276
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -277,6 +289,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2252830068068629547, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3381503785841812467, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.45893
@@ -316,6 +332,18 @@ PrefabInstance:
     - target: {fileID: 3381503785841812467, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103200492006158098, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288229617033049263, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484962733244710533, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9164947739843943938, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
       propertyPath: m_Name
@@ -368,7 +396,8 @@ MonoBehaviour:
   standingHeight: 1.8
   crouchHeight: 0.9
   cameraStandY: 1.6
-  cameraCrouchY: 0.7
+  cameraCrouchY: 0.9
+  crouchSmoothSpeed: 10
 --- !u!114 &1955229378336240535
 MonoBehaviour:
   m_ObjectHideFlags: 0
