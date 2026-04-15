@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a17667f1e68c2f46b5b4139f2774804, type: 3}
-  m_Name: Laptop
+  m_Name: Tablet_pc
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Laptop
-  itemPrefab: {fileID: 2355056708880136611, guid: 0dc668c1ce5981d4aa00fcea2ef5a101, type: 3}
-  modelPrefab: {fileID: 132824, guid: 7f20ef084dc7cdf47abacc4875e8776d, type: 3}
-  icon: {fileID: 2688070508087617356, guid: d47f32bdcc06010478de36128ae5e7d4, type: 3}
+  itemName: Tablet_pc
+  itemPrefab: {fileID: 5303337652662123240, guid: 844eccb542c93044189e5a413f75e390, type: 3}
+  modelPrefab: {fileID: 125818, guid: 3f6d3dd6820b730459f46c869980ebfe, type: 3}
+  icon: {fileID: 21300000, guid: f42993b939b679045993306364ddba30, type: 3}

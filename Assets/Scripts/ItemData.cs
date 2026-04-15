@@ -7,5 +7,5 @@ public class ItemData : ScriptableObject
     public string itemName;
     public GameObject itemPrefab;
     public GameObject modelPrefab;
-    public GameObject icon;
+    public Sprite icon;
 }

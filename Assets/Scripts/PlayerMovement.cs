@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         bool isMoving = moveInput.magnitude > 0.1f;
 
-        animator.SetBool("isWalking", isMoving && !isRunning && !isCrouching);
+        animator.SetBool("isWalking", isMoving && !isRunning);
         animator.SetBool("isRunning", isMoving && isRunning && !isCrouching);
         animator.SetBool("isCrouching", isCrouching);
     }
