@@ -12,7 +12,11 @@ public class Inventory : MonoBehaviour
     private GameObject currentActiveModel;
     void Start()
     {
-        
+        for (int i = 0; i < slots.Length; i++)
+        {
+            inventoryUI.UpdateSlotUI(i, slots[i]);
+        }
+        UpdateHandleModel();
     }
     private void OnInteract(InputValue value)
     {
@@ -48,8 +52,9 @@ public class Inventory : MonoBehaviour
     {
         if (!drop || slots[currentSlotIndex] == null) return;
         Vector3 spawnPos = itemHolder.position;
-        Quaternion spawnRot = itemHolder.rotation;
-        Instantiate(slots[currentSlotIndex].itemPrefab, spawnPos, spawnRot);
+        float playerYaw = transform.eulerAngles.y;
+        Quaternion spawnLot = Quaternion.Euler(slots[currentSlotIndex].itemPrefab.transform.eulerAngles.x, playerYaw, 0);
+        Instantiate(slots[currentSlotIndex].itemPrefab, spawnPos, spawnLot);
         slots[currentSlotIndex] = null;
         inventoryUI.UpdateSlotUI(currentSlotIndex, null);
         UpdateHandleModel();
@@ -80,7 +85,11 @@ public class Inventory : MonoBehaviour
     }
     private void UpdateHandleModel()
     {
-        if (currentActiveModel != null) Destroy(currentActiveModel);
+        if (currentActiveModel != null)
+        {
+            Destroy(currentActiveModel);
+            currentActiveModel = null;
+        }
         if (slots[currentSlotIndex] != null && slots[currentSlotIndex].modelPrefab != null)
         {
             currentActiveModel = Instantiate(slots[currentSlotIndex].modelPrefab,itemHolder);

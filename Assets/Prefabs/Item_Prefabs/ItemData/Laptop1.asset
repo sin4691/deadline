@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a17667f1e68c2f46b5b4139f2774804, type: 3}
+  m_Name: Laptop1
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Laptop1
+  itemPrefab: {fileID: 3522298751432507727, guid: cdf47f1befe10ba4b8241e6a51f670ac, type: 3}
+  modelPrefab: {fileID: 132824, guid: 7f20ef084dc7cdf47abacc4875e8776d, type: 3}
+  icon: {fileID: 21300000, guid: 7391cdd544243aa419c4edb8d76c616c, type: 3}
