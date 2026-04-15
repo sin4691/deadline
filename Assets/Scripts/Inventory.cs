@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using TMPro;
 public class Inventory : MonoBehaviour
 {
     public ItemData[] slots = new ItemData[4];
     public Transform itemHolder;
     public float pickupRange = 3f;
+    public TextMeshProUGUI pickSub;
     public InventoryUI inventoryUI;
     public Vector3 handOffset = new Vector3(0.4f, -0.4f, 0.7f);
+    public float scrollCooldown = 0.15f;
+
+    private float lastScrollTime;
     private int currentSlotIndex;
     private GameObject currentActiveModel;
+    private ItemWorld targetItem;
     void Start()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -18,21 +23,31 @@ public class Inventory : MonoBehaviour
         }
         UpdateHandleModel();
     }
+    void Update()
+    {
+        Vector3 targetPos = Camera.main.transform.TransformPoint(handOffset);
+        itemHolder.position = targetPos;
+        itemHolder.rotation = Camera.main.transform.rotation;
+        CheckInteraction();
+    }
     private void OnInteract(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && targetItem != null)
         {
-            PickUp();
+            PerformPickUp(targetItem);
         }
-    } 
+    }
     private void OnDrop(InputValue value) => Drop(value.isPressed);
     private void OnNext(InputValue value)
     {
+        if (Time.time - lastScrollTime < scrollCooldown) return;
         currentSlotIndex = (currentSlotIndex + 1) % slots.Length;
         UpdateHandleModel();
+        lastScrollTime = Time.time;
     }
     private void OnPrevious(InputValue value)
     {
+        if (Time.time - lastScrollTime < scrollCooldown) return;
         currentSlotIndex--;
 
         if (currentSlotIndex < 0)
@@ -40,14 +55,9 @@ public class Inventory : MonoBehaviour
             currentSlotIndex = slots.Length - 1;
         }
         UpdateHandleModel();
+        lastScrollTime = Time.time;
     }
-    void Update()
-    {
-        Vector3 targetPos = Camera.main.transform.TransformPoint(handOffset);
-        itemHolder.position = targetPos;
 
-        itemHolder.rotation = Camera.main.transform.rotation;
-    }
     private void Drop(bool drop)
     {
         if (!drop || slots[currentSlotIndex] == null) return;
@@ -59,26 +69,42 @@ public class Inventory : MonoBehaviour
         inventoryUI.UpdateSlotUI(currentSlotIndex, null);
         UpdateHandleModel();
     }
-    private void PickUp()
+
+    // 상호작용 체크
+    private void CheckInteraction()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        Debug.DrawRay(ray.origin, ray.direction * pickupRange, Color.red, 1.0f);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
-            if (hit.collider.TryGetComponent(out ItemWorld itemWorld))
+            Debug.Log("Hit: " + hit.collider.name + " | Tag: " + hit.collider.tag);
+            if (hit.collider.CompareTag("Item") && hit.collider.TryGetComponent(out ItemWorld itemWorld))
             {
-                if (slots[currentSlotIndex] == null)
+                targetItem = itemWorld; 
+                pickSub.text = "Press [E] to Pick Up";
+                pickSub.gameObject.SetActive(true);
+                return;
+            }
+        }
+        targetItem = null;
+        pickSub.gameObject.SetActive(false);
+
+    }
+
+    // 인벤토리 빈 슬롯 찾기
+    private void PerformPickUp(ItemWorld item)
+    {
+        if (slots[currentSlotIndex] == null)
+        {
+            AddItemToSlot(currentSlotIndex, item);
+        }
+        else
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i] == null)
                 {
-                    AddItemToSlot(currentSlotIndex, itemWorld);
+                    AddItemToSlot(i, item);
                     return;
-                }
-                for (int i = 0; i < slots.Length; i++)
-                {
-                    if (slots[i] == null)
-                    {
-                        AddItemToSlot(i, itemWorld);
-                        return;
-                    }
                 }
             }
         }
@@ -97,10 +123,9 @@ public class Inventory : MonoBehaviour
             currentActiveModel.transform.localRotation = Quaternion.identity;
         } 
     }
-    public int GetCurrentSlotIndex()
-    {
-        return currentSlotIndex;
-    }
+
+    public int GetCurrentSlotIndex(){ return currentSlotIndex;}
+
     private void AddItemToSlot(int index, ItemWorld itemWorld)
     {
         slots[index] = itemWorld.itemData;

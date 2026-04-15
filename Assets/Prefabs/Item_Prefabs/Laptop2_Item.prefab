@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laptop2_Item
       objectReference: {fileID: 0}
+    - target: {fileID: 3411581615010716200, guid: 65b38fd54f42437478470464134ae5a1, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 4084841255155271444, guid: 65b38fd54f42437478470464134ae5a1, type: 3}
       propertyPath: m_Mesh
       value: 
