@@ -3,35 +3,56 @@ using UnityEngine.AI;
 
 public class MonsterAI : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private float chaseRange = 20f; 
-    [SerializeField] private float stopDistance = 1.5f; 
+    [SerializeField] private float stopDistance = 1.5f;
+    [SerializeField] private float InvestigateWaitTime = 3f;
 
     private NavMeshAgent agent;
-    private Animator animator;
+    private PlayerMovement player;
 
+    enum State { Idle, Investigate }
+    State state = State.Idle;
+
+    private Vector3 lastNoisePosition;  // 마지막으로 소리 난 위치
+    private float waitTimer = 0f;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
-
-        if (player == null)
-            player = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); ;
     }
 
     void Update()
     {
-        float dist = Vector3.Distance(transform.position, player.position);
-
-        if (dist < chaseRange && dist > stopDistance)
+        float dist = Vector3.Distance(transform.position, player.transform.position);
+        bool canHear = dist < player.noiseRadius;
+        switch (state)
         {
-            agent.SetDestination(player.position);
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            agent.ResetPath();
-            animator.SetBool("isWalking", false);
+            case State.Idle:
+                if (canHear)
+                {
+                    lastNoisePosition = player.transform.position;
+                    agent.SetDestination(lastNoisePosition);
+                    state = State.Investigate;
+                    waitTimer = InvestigateWaitTime;
+                }
+                break;
+            case State.Investigate:
+                if (canHear)
+                {
+                    lastNoisePosition = player.transform.position;
+                    agent.SetDestination(lastNoisePosition);
+                    waitTimer = InvestigateWaitTime;
+                }
+                float distToTarget = Vector3.Distance(transform.position, lastNoisePosition);
+                if (distToTarget < stopDistance)
+                {
+                    waitTimer -= Time.deltaTime;
+                    if (waitTimer <= 0f && !canHear)
+                    {
+                        agent.ResetPath();
+                        state = State.Idle;
+                    }
+                }
+                break;
         }
     }
 }

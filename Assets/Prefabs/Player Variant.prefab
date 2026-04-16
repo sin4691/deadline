@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9164947739843943938, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 310204342187482790, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
     - {fileID: 5527410949951412630, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
@@ -438,6 +442,7 @@ MonoBehaviour:
   cameraStandY: 1.6
   cameraCrouchY: 0.9
   crouchSmoothSpeed: 10
+  noiseRadius: 0
 --- !u!114 &1955229378336240535
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -64,6 +64,14 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -203655887218126122, guid: 518a57ba53ebdcc49b9f48db792caec4, type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Blend
+    m_Mirror: 0
   m_BlendParameter: Blend
   m_BlendParameterY: Blend
   m_MinThreshold: 0
@@ -86,6 +94,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -7283782593395924618}
     m_Position: {x: 330, y: 50, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -210706902312773637}
+    m_Position: {x: 1618.1821, y: -449.67773, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1470477976842607812}
+    m_Position: {x: 1929.4243, y: 18.746094, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -96,6 +110,32 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 7419625421894269191}
+--- !u!1102 &-210706902312773637
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -130,6 +170,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &1470477976842607812
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State 0
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &7419625421894269191
 AnimatorState:
   serializedVersion: 6
