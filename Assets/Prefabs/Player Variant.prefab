@@ -380,7 +380,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9164947739843943938, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 310204342187482790, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+    - {fileID: 5527410949951412630, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3381503785841812467, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
@@ -428,6 +434,7 @@ MonoBehaviour:
   crouchSpeed: 2.5
   gravity: -20
   jumpHeight: 1.2
+  isMoving: 0
   cam: {fileID: 1030522461434939644}
   mouseSensitivity: 0.1
   standingHeight: 1.8
@@ -435,6 +442,7 @@ MonoBehaviour:
   cameraStandY: 1.6
   cameraCrouchY: 0.9
   crouchSmoothSpeed: 10
+  noiseRadius: 0
 --- !u!114 &1955229378336240535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +528,10 @@ MonoBehaviour:
   - {fileID: 0}
   itemHolder: {fileID: 1523996593220273498}
   pickupRange: 3
+  pickSub: {fileID: 0}
   inventoryUI: {fileID: 0}
-  handOffset: {x: 0.4, y: -0.4, z: 0.7}
+  handOffset: {x: 0.6, y: -0.3, z: 1.3}
+  scrollCooldown: 0.15
 --- !u!4 &6158964631475151906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3381503785841812467, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}

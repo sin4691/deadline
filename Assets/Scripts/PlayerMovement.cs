@@ -9,12 +9,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float crouchSpeed = 2.5f;
     [SerializeField] private float gravity = -15f;
     [SerializeField] private float jumpHeight = 1.5f;
-
+    public bool isMoving;
+    private bool isRunning;
+    private bool isCrouching;
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector3 velocity;
-    private bool isRunning;
-    private bool isCrouching;
     private Animator animator;
 
     [Header("Look")]
@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cameraStandY = 1.6f;
     [SerializeField] private float cameraCrouchY = 0.7f;
     [SerializeField] private float crouchSmoothSpeed = 10f;
+
+    public float noiseRadius = 0f;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -68,11 +70,16 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        bool isMoving = moveInput.magnitude > 0.1f;
+        isMoving = moveInput.magnitude > 0.1f;
 
         animator.SetBool("isWalking", isMoving && !isRunning);
         animator.SetBool("isRunning", isMoving && isRunning && !isCrouching);
         animator.SetBool("isCrouching", isCrouching);
+
+        if (isMoving && isRunning)          noiseRadius = 15f;  // 달리기
+        else if (isMoving && isCrouching)   noiseRadius = 2f;   // 앉아서 이동
+        else if (isMoving)                  noiseRadius = 6f;   // 걷기
+        else                                noiseRadius = 0f;   // 정지
     }
     private void HandleCrouch(bool pressed)
     {

@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: e2f89faaf7c08694293c06ff30af564d
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: dollwalking(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: skin
+      parentName: dollwalking(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hip
+      parentName: dollwalking(Clone)
+      position: {x: 0, y: 0.05748691, z: -0.007630434}
+      rotation: {x: 0.35897052, y: -0.60921276, z: -0.35897052, w: 0.60921276}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: pCylinder16
+      parentName: hip
+      position: {x: 0.0002334547, y: 0.00019859313, z: 0.00042628645}
+      rotation: {x: -0.3589705, y: 0.60921276, z: 0.3589705, w: 0.60921276}
+      scale: {x: 1, y: 1, z: 1}
+    - name: back
+      parentName: hip
+      position: {x: -0.0050012963, y: 2.1588273e-22, z: -4.609449e-35}
+      rotation: {x: -0.96344614, y: 0.26790217, z: -0, w: 0}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000004}
+    - name: pCube61
+      parentName: back
+      position: {x: -0.0025352286, y: -0.0005807197, z: -0.0003871911}
+      rotation: {x: 0.49077466, y: -0.5090582, z: 0.49077466, w: 0.5090582}
+      scale: {x: 1, y: 1, z: 1}
+    - name: back
+      parentName: back
+      position: {x: -0.0054798136, y: 7.2858384e-19, z: -1.0992027e-18}
+      rotation: {x: 0.99971586, y: -0.023837581, z: -0, w: 0}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: pCube59
+      parentName: back
+      position: {x: -0.0034641502, y: 0.00051119446, z: 0.00038719116}
+      rotation: {x: -0.49721465, y: 0.50276995, z: 0.49721465, w: 0.50276995}
+      scale: {x: 1, y: 1, z: 1}
+    - name: back
+      parentName: back
+      position: {x: -0.0060107796, y: 4.8849813e-17, z: 3.8225902e-17}
+      rotation: {x: -0.9999468, y: 0.010316874, z: -0.000000036192482, w: -0.000000021597703}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+    - name: pCube67
+      parentName: back
+      position: {x: -0.0038576268, y: -0.0005027413, z: -0.00038719116}
+      rotation: {x: 0.4976135, y: -0.50237525, z: 0.4976135, w: 0.50237525}
+      scale: {x: 1, y: 1, z: 1}
+    - name: back
+      parentName: back
+      position: {x: -0.0070124613, y: 2.6142282e-17, z: -1.3375097e-18}
+      rotation: {x: 0.99908715, y: -0.042719062, z: 0.000000056696667, w: 0.000000013654047}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: pCube66
+      parentName: back
+      position: {x: -0.0029680347, y: 0.00069986936, z: 0.00038719116}
+      rotation: {x: -0.480659, y: 0.5186202, z: 0.480659, w: 0.5186202}
+      scale: {x: 1, y: 1, z: 1}
+    - name: back
+      parentName: back
+      position: {x: -0.006161732, y: -1.110223e-18, z: 7.999274e-19}
+      rotation: {x: -0.9973926, y: 0.07216759, z: -0.000000020139954, w: 0.000000037023494}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000002}
+    - name: pCube62
+      parentName: back
+      position: {x: -0.0033154201, y: -0.00071483373, z: -0.00038719177}
+      rotation: {x: 0.48257995, y: -0.51683325, z: 0.48257995, w: 0.51683325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: chest
+      parentName: back
+      position: {x: -0.006827818, y: 2.1510571e-18, z: -1.704393e-18}
+      rotation: {x: -0.56114537, y: 0.43025094, z: 0.39082173, w: 0.5892863}
+      scale: {x: 1.0000008, y: 1.0000004, z: 1.0000006}
+    - name: pCube69
+      parentName: chest
+      position: {x: -0.0013553143, y: 0.0047960663, z: -0.0017837238}
+      rotation: {x: -0.16477624, y: 0.986331, z: 2.7940483e-16, w: -4.667731e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left_shoulder
+      parentName: chest
+      position: {x: -0.013196099, y: 1.6098233e-17, z: -9.797505e-19}
+      rotation: {x: 0.000000059604638, y: 0.00000004470348, z: 0.16231677, w: 0.98673874}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: polySurface124
+      parentName: left_shoulder
+      position: {x: -0.012726169, y: 0.000047454832, z: -0.0007376373}
+      rotation: {x: -0.0024929969, y: 0.9999969, z: 6.123215e-17, w: -1.5265202e-19}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint13
+      parentName: left_shoulder
+      position: {x: -0.03944858, y: 0.00016763918, z: -0.000578771}
+      rotation: {x: 0.002493038, y: -0.9999969, z: 8.564525e-11, w: 1.64821e-10}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+    - name: polySurface65
+      parentName: joint13
+      position: {x: 0.007369778, y: -0.000019950867, z: 0.00073764205}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightshoulder
+      parentName: chest
+      position: {x: 0.0119039435, y: 0.008493508, z: -9.860761e-34}
+      rotation: {x: 0.1578786, y: -0.9874585, z: -0.000000029802319, w: -0.000000014901159}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    - name: polySurface125
+      parentName: rightshoulder
+      position: {x: -0.011704711, y: 0.0004009819, z: 0.0007376373}
+      rotation: {x: 0, y: -0, z: -0.0069891624, w: 0.99997556}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint15
+      parentName: rightshoulder
+      position: {x: -0.039361715, y: -0.00056986907, z: -0.0021567733}
+      rotation: {x: -0.15787862, y: 0.9874585, z: -0.0000000043313833, w: -0.000000039624567}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1}
+    - name: polySurface69
+      parentName: joint15
+      position: {x: 0.0074948315, y: 0.0031887626, z: -0.00073764205}
+      rotation: {x: -0.16477624, y: 0.986331, z: -1.5934617e-15, w: 2.6620337e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck
+      parentName: chest
+      position: {x: -0.0026240093, y: 0.009107987, z: -2.8155845e-19}
+      rotation: {x: 0.8039627, y: -0.59467983, z: -0, w: -0.000000010244548}
+      scale: {x: 1, y: 0.9999998, z: 0.9999997}
+    - name: neck
+      parentName: neck
+      position: {x: -0.010715797, y: 9.3686575e-18, z: 0.0052368045}
+      rotation: {x: -0.000000014532892, y: -0.00000004000894, z: 0.016602216, w: 0.9998622}
+      scale: {x: 1.0000002, y: 0.99999994, z: 0.9999998}
+    - name: head
+      parentName: neck
+      position: {x: -0.01518801, y: -1.4062699e-17, z: 0.009279404}
+      rotation: {x: -0.79397887, y: 0.60794544, z: -8.024025e-10, w: -0.000000016807512}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.9999998}
+    - name: polySurface56
+      parentName: head
+      position: {x: -0.00018082141, y: -0.00021848678, z: -0.0024890702}
+      rotation: {x: -0.16477624, y: 0.986331, z: 6.0395355e-17, w: -1.0089635e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface53
+      parentName: head
+      position: {x: -0.0030605958, y: 0.0001833725, z: -0.0017923008}
+      rotation: {x: -0.16477624, y: 0.986331, z: 6.0395355e-17, w: -1.0089635e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface54
+      parentName: head
+      position: {x: 0.0018818402, y: 0.0018821525, z: -0.0017923008}
+      rotation: {x: -0.16477624, y: 0.986331, z: 6.0395355e-17, w: -1.0089635e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface61
+      parentName: head
+      position: {x: 0.0022451829, y: -0.0066950605, z: 0.003004502}
+      rotation: {x: -0.16477624, y: 0.986331, z: 2.7940483e-16, w: -4.667731e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left_leg
+      parentName: hip
+      position: {x: -0.0001883378, y: 0.0000059565104, z: 0.0116278455}
+      rotation: {x: 0.20751487, y: 0.9782319, z: -0, w: 0}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: polySurface127
+      parentName: left_leg
+      position: {x: -0.012519049, y: -0.00003273308, z: -0.00030625224}
+      rotation: {x: -0.47757706, y: -0.52145964, z: -0.47757706, w: 0.52145964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left_knee
+      parentName: left_leg
+      position: {x: -0.027419569, y: -1.11022296e-17, z: -5.5663572e-18}
+      rotation: {x: -0.998479, y: -0.055134296, z: -0, w: 0}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: polySurface123
+      parentName: left_knee
+      position: {x: -0.0100924345, y: -0.00072623725, z: 0.0002943754}
+      rotation: {x: 0.49433553, y: 0.505601, z: -0.49433553, w: 0.505601}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left_ankle
+      parentName: left_knee
+      position: {x: -0.023713741, y: -1.851568e-17, z: 3.8905552e-11}
+      rotation: {x: -0, y: -0, z: -0.9653027, w: 0.26113334}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000002}
+    - name: polySurface120
+      parentName: left_ankle
+      position: {x: 0.00430881, y: 0.006694509, z: 0.00035230038}
+      rotation: {x: -0.35897052, y: 0.60921276, z: 0.3589705, w: 0.60921276}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right_leg
+      parentName: hip
+      position: {x: -0.0001883378, y: 0.0000059565104, z: -0.011386519}
+      rotation: {x: 0.20751487, y: 0.9782319, z: -0, w: 0}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000004}
+    - name: polySurface108
+      parentName: right_leg
+      position: {x: -0.012519045, y: -0.000032732485, z: -0.00030499816}
+      rotation: {x: -0.47757706, y: -0.52145964, z: -0.47757706, w: 0.52145964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right_knee
+      parentName: right_leg
+      position: {x: -0.027419569, y: -1.11022296e-17, z: -5.5663572e-18}
+      rotation: {x: -0.998479, y: -0.055134267, z: -0, w: 0}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: polySurface122
+      parentName: right_knee
+      position: {x: -0.011369246, y: -0.0007550108, z: 0.00031687258}
+      rotation: {x: 0.49433553, y: 0.505601, z: -0.49433553, w: 0.505601}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right_ankle
+      parentName: right_knee
+      position: {x: -0.023713741, y: -1.851568e-17, z: 3.8905552e-11}
+      rotation: {x: -0, y: -0, z: -0.9653028, w: 0.26113334}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: polySurface119
+      parentName: right_ankle
+      position: {x: 0.004599974, y: 0.0065332237, z: 0.0002589464}
+      rotation: {x: -0.35897052, y: 0.60921276, z: 0.3589705, w: 0.60921276}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

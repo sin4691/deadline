@@ -61,7 +61,7 @@ public class Inventory : MonoBehaviour
     private void Drop(bool drop)
     {
         if (!drop || slots[currentSlotIndex] == null) return;
-        Vector3 spawnPos = itemHolder.position;
+        Vector3 spawnPos = GetDropPosition();
         float playerYaw = transform.eulerAngles.y;
         Quaternion spawnLot = Quaternion.Euler(slots[currentSlotIndex].itemPrefab.transform.eulerAngles.x, playerYaw, 0);
         Instantiate(slots[currentSlotIndex].itemPrefab, spawnPos, spawnLot);
@@ -69,14 +69,30 @@ public class Inventory : MonoBehaviour
         inventoryUI.UpdateSlotUI(currentSlotIndex, null);
         UpdateHandleModel();
     }
+    private Vector3 GetDropPosition()
+    {
+        Vector3 desiredPos = itemHolder.position;
+        Vector3 playerCenter = transform.position + Vector3.up * 0.5f;
+        if (Physics.Linecast(playerCenter, desiredPos, out RaycastHit wallHit))
+        {
+            // 벽에 막히면 벽 바로 앞으로 보정
+            desiredPos = wallHit.point + wallHit.normal * 0.3f;
+        }
+        // 바닥 너무 가까우면 살짝 위로
+        if (Physics.Raycast(desiredPos + Vector3.up * 0.5f, Vector3.down, out RaycastHit groundHit, 1f))
+        {
+            if (desiredPos.y - groundHit.point.y < 0.15f)
+                desiredPos.y = groundHit.point.y + 0.15f;
+        }
 
+        return desiredPos;
+    }
     // 상호작용 체크
     private void CheckInteraction()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
-            Debug.Log("Hit: " + hit.collider.name + " | Tag: " + hit.collider.tag);
             if (hit.collider.CompareTag("Item") && hit.collider.TryGetComponent(out ItemWorld itemWorld))
             {
                 targetItem = itemWorld; 
