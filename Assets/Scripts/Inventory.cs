@@ -76,7 +76,6 @@ public class Inventory : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
-            Debug.Log("Hit: " + hit.collider.name + " | Tag: " + hit.collider.tag);
             if (hit.collider.CompareTag("Item") && hit.collider.TryGetComponent(out ItemWorld itemWorld))
             {
                 targetItem = itemWorld; 

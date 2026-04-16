@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float crouchSpeed = 2.5f;
     [SerializeField] private float gravity = -15f;
     [SerializeField] private float jumpHeight = 1.5f;
-
+    public bool isMoving;
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector3 velocity;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        bool isMoving = moveInput.magnitude > 0.1f;
+        isMoving = moveInput.magnitude > 0.1f;
 
         animator.SetBool("isWalking", isMoving && !isRunning);
         animator.SetBool("isRunning", isMoving && isRunning && !isCrouching);
