@@ -22,7 +22,6 @@ public class DungeonNavMesh : MonoBehaviour
         if (status == GenerationStatus.Complete)
         {
             surface.BuildNavMesh();
-            Debug.Log("NavMesh 베이크 완료");
         }
     }
 }
