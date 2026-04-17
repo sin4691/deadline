@@ -15,7 +15,7 @@ MonoBehaviour:
   TileWeights:
     Weights:
     - Value: {fileID: 1111612450902973423, guid: 5cec83b90b392b04dab3ec5bd950ee93, type: 3}
-      MainPathWeight: 1.5
+      MainPathWeight: 1
       BranchPathWeight: 1
       DepthWeightScale:
         serializedVersion: 2
@@ -44,7 +44,7 @@ MonoBehaviour:
       TileSet: {fileID: 11400000}
     - Value: {fileID: 4815248716322101378, guid: 414f3789ab1498f4992122f38c2067dd, type: 3}
       MainPathWeight: 0.1
-      BranchPathWeight: 1
+      BranchPathWeight: 0.8
       DepthWeightScale:
         serializedVersion: 2
         m_Curve:
@@ -72,7 +72,7 @@ MonoBehaviour:
       TileSet: {fileID: 11400000}
     - Value: {fileID: 8484636339225921885, guid: ccb47d2f3046de343a1188cabaac178a, type: 3}
       MainPathWeight: 0.3
-      BranchPathWeight: 1
+      BranchPathWeight: 0.3
       DepthWeightScale:
         serializedVersion: 2
         m_Curve:
@@ -99,8 +99,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       TileSet: {fileID: 11400000}
     - Value: {fileID: 3241544092784931754, guid: c2c7e3c4ac11aeb48abe98fa87e81f05, type: 3}
-      MainPathWeight: 1
-      BranchPathWeight: 1
+      MainPathWeight: 3
+      BranchPathWeight: 3
       DepthWeightScale:
         serializedVersion: 2
         m_Curve:
@@ -127,8 +127,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       TileSet: {fileID: 11400000}
     - Value: {fileID: 3654261308647755846, guid: 48a0795ed09eec3499b40809025dd132, type: 3}
-      MainPathWeight: 1
-      BranchPathWeight: 1
+      MainPathWeight: 5
+      BranchPathWeight: 5
       DepthWeightScale:
         serializedVersion: 2
         m_Curve:
@@ -155,8 +155,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       TileSet: {fileID: 11400000}
     - Value: {fileID: 7901850641248104540, guid: 3e71804e56885f640808ef79de12cc9b, type: 3}
-      MainPathWeight: 1
-      BranchPathWeight: 1
+      MainPathWeight: 2
+      BranchPathWeight: 2
       DepthWeightScale:
         serializedVersion: 2
         m_Curve:

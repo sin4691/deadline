@@ -1,4 +1,5 @@
 using DunGen;
+using System.Collections;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,7 +9,7 @@ public class DungeonNavMesh : MonoBehaviour
     NavMeshSurface surface;
     RuntimeDungeon runtimeDungeon;
 
-    void Start()
+    void Awake()
     {
         surface = GetComponent<NavMeshSurface>();
         runtimeDungeon = GetComponent<RuntimeDungeon>();
@@ -18,10 +19,17 @@ public class DungeonNavMesh : MonoBehaviour
 
     void OnGenerationStatusChanged(DungeonGenerator generator, GenerationStatus status)
     {
-        // 생성 완료 시에만 베이크
         if (status == GenerationStatus.Complete)
         {
-            surface.BuildNavMesh();
+            StartCoroutine(BakeRoutine());
         }
+    }
+
+    IEnumerator BakeRoutine()
+    {
+        yield return null;
+
+        surface.RemoveData();
+        surface.BuildNavMesh();
     }
 }
