@@ -1,27 +1,36 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class MonsterAI : MonoBehaviour
 {
-    [SerializeField] private float chaseDist = 30f;
+    [SerializeField] private float FindPlayerDist = 30f;
     [SerializeField] private float wanderRadius = 10f;
     [SerializeField] private float idleWaitTime = 4f;
     [SerializeField] private float arriveDistance = 0.3f;
-
+    [SerializeField] private float walkSpeed = 3.5f;
+    [SerializeField] private float ChasePlayerSpeed = 6.5f;
+    [SerializeField] private AudioClip screamSound;
     private NavMeshAgent agent;
     private PlayerMovement player;
     private Vector3 lastNoisePosition;
     private float waitTimer = 0f;
     private Animator anim;
+    private AudioSource audioSource;
+    private Transform[] waypoints;
 
-    enum State { Chase, Wander, Idle, Investigate }
-    State state = State.Chase;
+    enum State { FindPlayer, Wander, Idle, ChasePlayer }
+    State state = State.FindPlayer;
 
     void Start()
     {
         agent   = GetComponent<NavMeshAgent>();
         anim    = GetComponent<Animator>();
-        player  = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); 
+        audioSource = GetComponent<AudioSource>();
+        player  = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        GameObject[] points = GameObject.FindGameObjectsWithTag("ItemPoint");
+        waypoints = System.Array.ConvertAll(points, p => p.transform);
     }
 
     void Update()
@@ -31,23 +40,23 @@ public class MonsterAI : MonoBehaviour
         anim.SetFloat("Speed", agent.velocity.magnitude);
         switch (state)
         {
-            case State.Chase:
+            case State.FindPlayer:
                 agent.SetDestination(player.transform.position);
-                if (dist < chaseDist)
+                if (dist < FindPlayerDist)
                     ChangeState(State.Idle);
                 break;
 
             case State.Wander:
                 if (hearSound)
                 {
-                    ChangeState(State.Investigate);
+                    ChangeState(State.ChasePlayer);
                     break;
                 }
                 if (agent.remainingDistance < arriveDistance && !agent.pathPending)
                     SetWander();
                 break;
 
-            case State.Investigate:
+            case State.ChasePlayer:
                 if (hearSound)
                 {
                     lastNoisePosition = player.transform.position;
@@ -59,7 +68,7 @@ public class MonsterAI : MonoBehaviour
 
             case State.Idle:
                 if (hearSound)
-                    ChangeState(State.Investigate);
+                    ChangeState(State.ChasePlayer);
                 else
                 {
                     waitTimer -= Time.deltaTime;
@@ -71,14 +80,43 @@ public class MonsterAI : MonoBehaviour
     }
     void ChangeState(State next)
     {
+        // 아무 상태에서 추적 상태로 변할때 Scream
+        if (next == State.ChasePlayer)
+        {
+            StartCoroutine(PlayScream());
+        }
+        else
+            agent.speed = walkSpeed;
+        // Idle 타이머 초기화
         state = next;
         if(next == State.Idle)
             waitTimer = idleWaitTime;
+           
+        
     }
     void SetWander()
     {
-        Vector3 randomDir = Random.insideUnitSphere * wanderRadius + transform.position;
-        if (NavMesh.SamplePosition(randomDir, out NavMeshHit hit, wanderRadius, NavMesh.AllAreas))
+        if (waypoints == null || waypoints.Length == 0) return;
+
+        Transform target = waypoints[Random.Range(0, waypoints.Length)];
+
+        if (NavMesh.SamplePosition(target.position, out NavMeshHit hit, 2f, NavMesh.AllAreas))
             agent.SetDestination(hit.position);
+        else
+            ChangeState(State.Idle);
+    }
+    IEnumerator PlayScream()
+    {
+        anim.SetTrigger("Scream");
+        agent.speed = 0.1f;
+        Debug.Log("멈춤!");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("멈춤끝!");
+        agent.speed = ChasePlayerSpeed;
+        if (audioSource != null && screamSound != null)
+        {
+            //audioSource.PlayOneShot(screamSound);
+            
+        }
     }
 }
