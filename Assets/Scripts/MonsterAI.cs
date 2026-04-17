@@ -3,56 +3,82 @@ using UnityEngine.AI;
 
 public class MonsterAI : MonoBehaviour
 {
-    [SerializeField] private float stopDistance = 1.5f;
-    [SerializeField] private float InvestigateWaitTime = 3f;
+    [SerializeField] private float chaseDist = 30f;
+    [SerializeField] private float wanderRadius = 10f;
+    [SerializeField] private float idleWaitTime = 4f;
+    [SerializeField] private float arriveDistance = 0.3f;
 
     private NavMeshAgent agent;
     private PlayerMovement player;
-
-    enum State { Idle, Investigate }
-    State state = State.Idle;
-
-    private Vector3 lastNoisePosition;  // 마지막으로 소리 난 위치
+    private Vector3 lastNoisePosition;
     private float waitTimer = 0f;
+    private Animator anim;
+
+    enum State { Chase, Wander, Idle, Investigate }
+    State state = State.Chase;
+
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); ;
+        agent   = GetComponent<NavMeshAgent>();
+        anim    = GetComponent<Animator>();
+        player  = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>(); 
     }
 
     void Update()
     {
         float dist = Vector3.Distance(transform.position, player.transform.position);
-        bool canHear = dist < player.noiseRadius;
+        bool hearSound = dist < player.noiseRadius; // 소리를 들음!
+        anim.SetFloat("Speed", agent.velocity.magnitude);
         switch (state)
         {
-            case State.Idle:
-                if (canHear)
-                {
-                    lastNoisePosition = player.transform.position;
-                    agent.SetDestination(lastNoisePosition);
-                    state = State.Investigate;
-                    waitTimer = InvestigateWaitTime;
-                }
+            case State.Chase:
+                agent.SetDestination(player.transform.position);
+                if (dist < chaseDist)
+                    ChangeState(State.Idle);
                 break;
+
+            case State.Wander:
+                if (hearSound)
+                {
+                    ChangeState(State.Investigate);
+                    break;
+                }
+                if (agent.remainingDistance < arriveDistance && !agent.pathPending)
+                    SetWander();
+                break;
+
             case State.Investigate:
-                if (canHear)
+                if (hearSound)
                 {
                     lastNoisePosition = player.transform.position;
                     agent.SetDestination(lastNoisePosition);
-                    waitTimer = InvestigateWaitTime;
                 }
-                float distToTarget = Vector3.Distance(transform.position, lastNoisePosition);
-                if (distToTarget < stopDistance)
+                if (Vector3.Distance(transform.position, lastNoisePosition) < arriveDistance)
+                    ChangeState(State.Idle);
+                break;
+
+            case State.Idle:
+                if (hearSound)
+                    ChangeState(State.Investigate);
+                else
                 {
                     waitTimer -= Time.deltaTime;
-                    if (waitTimer <= 0f && !canHear)
-                    {
-                        agent.ResetPath();
-                        state = State.Idle;
-                    }
+                    if (waitTimer <= 0f)
+                        ChangeState(State.Wander);
                 }
                 break;
         }
+    }
+    void ChangeState(State next)
+    {
+        state = next;
+        if(next == State.Idle)
+            waitTimer = idleWaitTime;
+    }
+    void SetWander()
+    {
+        Vector3 randomDir = Random.insideUnitSphere * wanderRadius + transform.position;
+        if (NavMesh.SamplePosition(randomDir, out NavMeshHit hit, wanderRadius, NavMesh.AllAreas))
+            agent.SetDestination(hit.position);
     }
 }

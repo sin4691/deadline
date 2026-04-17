@@ -58,7 +58,7 @@ MonoBehaviour:
   socketGroup_obsolete: -1
   doorPrefabs_obsolete: []
   blockerPrefabs_obsolete: []
-  socket: {fileID: 699092095700052238, guid: 358d6d11fb7388b4b8bb4ef9586905f0, type: 2}
+  socket: {fileID: 8470026260268579547, guid: 358d6d11fb7388b4b8bb4ef9586905f0, type: 2}
   doorPrefabInstance: {fileID: 0}
   doorComponent: {fileID: 0}
   tile: {fileID: 0}
@@ -988,6 +988,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2901513781023258379}
     m_Modifications:
+    - target: {fileID: 919132147762302262, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147762302263, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
+      propertyPath: m_Size.y
+      value: 3.6495981
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147762302263, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
+      propertyPath: m_Size.z
+      value: 4.000019
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147762302263, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147762302263, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147762302263, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
+      propertyPath: m_Center.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3706119557079855504, guid: 321f62c8b178a8d4fb7b569a766c08bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5796814

@@ -236,8 +236,8 @@ MonoBehaviour:
     UpDirection: 2
     OverrideRepeatMode: 0
     RepeatMode: 0
-    OverrideAllowTileRotation: 0
-    AllowTileRotation: 0
+    OverrideAllowTileRotation: 1
+    AllowTileRotation: 1
     DebugRender: 0
     LengthMultiplier: 1
     PlaceTileTriggers: 1
@@ -249,7 +249,7 @@ MonoBehaviour:
     TilePlacementBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 5, y: 5, z: 5}
-    OverlapThreshold: 0.1
+    OverlapThreshold: 1
     Padding: 0
     DisallowOverhangs: 0
     Root: {fileID: 0}
@@ -326,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155627127}
   - component: {fileID: 155627126}
+  - component: {fileID: 155627128}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -367,6 +368,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155627128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155627125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfadeca9cd160440bf17ce5200f53fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterSpawner
+  monster: {fileID: 1708840224273113689, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
 --- !u!1 &240788106
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,11 +729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026d2d15d0e415d49bd2c121366e287b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
---- !u!4 &582141059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6158964631475151906, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
-  m_PrefabInstance: {fileID: 1930641284}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &603983380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2226,18 +2235,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4991637286595344367, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
-      propertyPath: m_Speed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -4991637286595344367, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
-      propertyPath: m_Radius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 655665142860731770, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 582141059}
     - target: {fileID: 1708840224273113689, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -2285,10 +2282,6 @@ PrefabInstance:
     - target: {fileID: 2088779132166142179, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7054967285776066218, guid: 7747c62fb353c8546940373d0a5b1c45, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
