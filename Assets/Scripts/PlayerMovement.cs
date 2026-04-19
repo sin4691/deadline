@@ -9,6 +9,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float crouchSpeed = 2.5f;
     [SerializeField] private float gravity = -15f;
     [SerializeField] private float jumpHeight = 1.5f;
+
+    [Header("Sound")]
+    [SerializeField] private AudioClip[] footstepRunSounds;
+    [SerializeField] private AudioClip[] footstepWalkSounds;
+    [SerializeField] private float footstepInterval = 0.5f;
+    [SerializeField] private float runFootstepInterval = 0.3f;
+
+    private float footstepTimer = 0f;
+    private AudioSource audioSource;
     public bool isMoving;
     private bool isRunning;
     private bool isCrouching;
@@ -35,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
         HandleCrouch(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -44,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerLook();
         PlayerMove();
         UpdateCameraHeight();
+        HandleFootsteps();
     }
     private void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
     private void OnLook(InputValue value) => lookInput = value.Get<Vector2>();
@@ -96,5 +107,27 @@ public class PlayerMovement : MonoBehaviour
         Vector3 currentCamPos = cam.localPosition;
         currentCamPos.y = Mathf.Lerp(currentCamPos.y, targetCamY, crouchSmoothSpeed * Time.deltaTime);
         cam.localPosition = currentCamPos;
+    }
+    void HandleFootsteps()
+    {
+        if (!isMoving || !controller.isGrounded)
+        {
+            footstepTimer = 0f;
+            return;
+        }
+
+        footstepTimer -= Time.deltaTime;
+        if (footstepTimer <= 0f)
+        {
+            AudioClip[] clips = isRunning ? footstepRunSounds : footstepWalkSounds;
+            if (clips != null && clips.Length > 0)
+            {
+                audioSource.volume = isCrouching ? 0.2f : 1f;
+                audioSource.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+            }
+
+            footstepTimer = isCrouching ? footstepInterval * 1.5f : 
+                isRunning ? runFootstepInterval : footstepInterval;
+        }
     }
 }

@@ -307,14 +307,14 @@ NavMeshAgent:
   m_GameObject: {fileID: 1708840224273113689}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 1000
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.3
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -332,13 +332,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de9148ab280d8844b9cad98f3a33f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterAI
-  FindPlayerDist: 30
+  footstepSounds:
+  - {fileID: 8300000, guid: 784cb655ab2b9054b94e5cb5ea8f79e3, type: 3}
+  - {fileID: 8300000, guid: 493cd3dc5a9aab642af539510112cd9f, type: 3}
+  - {fileID: 8300000, guid: d1001aa0e2d5b2a48813818314fbf869, type: 3}
+  - {fileID: 8300000, guid: 6787fd63a35846046b0e715e02e53b7a, type: 3}
+  - {fileID: 8300000, guid: d617f6ddaf05d2a49992dce9cb6990cf, type: 3}
+  - {fileID: 8300000, guid: ffb0a4eb8de830444933a928e4d9bb3d, type: 3}
+  - {fileID: 8300000, guid: 82266fa6f9304d346931ab166fc0db7f, type: 3}
+  - {fileID: 8300000, guid: 5aebd74048d10bc43acd5632b657bed1, type: 3}
+  - {fileID: 8300000, guid: 5be44788f9cb5f04abc720ddec11a372, type: 3}
+  - {fileID: 8300000, guid: 78f5f29e771007744b5911e359f1add7, type: 3}
+  walkFootstepInterval: 0.8
+  runFootstepInterval: 0.4
   wanderRadius: 10
   idleWaitTime: 4
   arriveDistance: 0.3
   walkSpeed: 3.5
-  ChasePlayerSpeed: 6.5
-  screamSound: {fileID: 0}
+  chasePlayerSpeed: 6.5
+  screamSound: {fileID: 8300000, guid: 4c5843028e1640846a24f0bfc9f33523, type: 3}
 --- !u!82 &-691631933585724592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -360,8 +372,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 3
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -396,7 +408,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
