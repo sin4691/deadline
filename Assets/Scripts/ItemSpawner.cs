@@ -13,6 +13,10 @@ public class ItemSpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(WaitAndSpawn());
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.SetTotalItemCount(itemSpawnCount);
+        }
     }
     private IEnumerator WaitAndSpawn()
     {
