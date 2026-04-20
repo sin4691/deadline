@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject clearPanel;
     public GameObject pausePanel;
     public TextMeshProUGUI counterText;
+    private Timer timer;
 
     private int currentItemCount = 0;
     public bool isPaused = false;
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        timer = GetComponent<Timer>();
+        timer.StartTimer();
     }
     private void Update()
     {
@@ -58,9 +61,9 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Playing) return;
         currentState = GameState.Cleared;
-        isPaused = !isPaused;
         // 클리어 처리
         Time.timeScale = 0f;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
         clearPanel.SetActive(true);
     }
     public void OnRestartButton()
