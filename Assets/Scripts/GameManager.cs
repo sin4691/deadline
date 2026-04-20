@@ -1,12 +1,21 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+public enum GameState { Playing, Dead, Cleared }
 public class GameManager : MonoBehaviour
 {
-    public int itemSpawnCount;
-    private int currentItemCount = 0;
-    public TextMeshProUGUI counterText;
     public static GameManager Instance { get; private set; }
+    public GameState currentState = GameState.Playing;
+    public int itemSpawnCount;
+    public GameObject clearPanel;
+    public GameObject pausePanel;
+    public TextMeshProUGUI counterText;
+
+    private int currentItemCount = 0;
+    public bool isPaused = false;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -14,10 +23,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
-
-        DontDestroyOnLoad(gameObject);
+    }
+    private void Update()
+    {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            TogglePause();
     }
     public void SetTotalItemCount(int total)
     {
@@ -29,9 +40,47 @@ public class GameManager : MonoBehaviour
         currentItemCount++;
         UpdateUI();
         // 효과음 재생
+        if (currentItemCount == itemSpawnCount)
+            GameClear();
     }
     void UpdateUI()
     {
         counterText.text = $"{currentItemCount} / {itemSpawnCount}";
+    }
+    public void PlayerDied()
+    {
+        if (currentState != GameState.Playing) return;
+        currentState = GameState.Dead;
+        // 사망모션 처리
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void GameClear()
+    {
+        if (currentState != GameState.Playing) return;
+        currentState = GameState.Cleared;
+        isPaused = !isPaused;
+        // 클리어 처리
+        Time.timeScale = 0f;
+        clearPanel.SetActive(true);
+    }
+    public void OnRestartButton()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnMainMenuButton()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void TogglePause()
+    {
+        if (currentState != GameState.Playing) return;
+
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
+        pausePanel.SetActive(isPaused);
+        UnityEngine.Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }

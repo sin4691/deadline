@@ -79,6 +79,7 @@ public class MonsterAI : MonoBehaviour
         }
         HandleFootsteps();
     }
+
     void ChangeState(State next)
     {
         if (state == next) return;

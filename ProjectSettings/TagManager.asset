@@ -8,6 +8,7 @@ TagManager:
   - ItemPoint
   - MonsterPoint
   - MonsterMovingPoint
+  - Monster
   layers:
   - Default
   - TransparentFX
