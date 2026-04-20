@@ -775,6 +775,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2258477514316496290}
     m_Modifications:
+    - target: {fileID: 6369914103743847718, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413359964030628434, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
       propertyPath: m_Name
       value: Station_Ceiling (1)
@@ -1861,6 +1865,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2258477514316496290}
     m_Modifications:
+    - target: {fileID: 6369914103743847718, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413359964030628434, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
       propertyPath: m_Name
       value: Station_Ceiling (2)
@@ -2952,6 +2960,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2258477514316496290}
     m_Modifications:
+    - target: {fileID: 608729791559320750, guid: 21f946efe6b8e334993f54bdf6d93d7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733517655231353989, guid: 21f946efe6b8e334993f54bdf6d93d7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2858833953217620251, guid: 21f946efe6b8e334993f54bdf6d93d7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.048834
@@ -3249,6 +3265,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2258477514316496290}
     m_Modifications:
+    - target: {fileID: 6369914103743847718, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413359964030628434, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
       propertyPath: m_Name
       value: Station_Ceiling
@@ -3786,6 +3806,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2258477514316496290}
     m_Modifications:
+    - target: {fileID: 6369914103743847718, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413359964030628434, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
       propertyPath: m_Name
       value: Station_Ceiling (3)

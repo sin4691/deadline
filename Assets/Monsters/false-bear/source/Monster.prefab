@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7a91e46ffa4b0e418a5dc0cfcf77614, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: b7a91e46ffa4b0e418a5dc0cfcf77614, type: 3}
       propertyPath: 'm_Bones.Array.data[13]'
       value: 

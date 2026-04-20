@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float crouchSpeed = 2.5f;
     [SerializeField] private float gravity = -15f;
-    [SerializeField] private float jumpHeight = 1.5f;
 
     [Header("Sound")]
     [SerializeField] private AudioClip[] footstepRunSounds;
@@ -56,13 +56,21 @@ public class PlayerMovement : MonoBehaviour
         UpdateCameraHeight();
         HandleFootsteps();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Monster"))
+        {
+            GameManager.Instance.PlayerDied();
+        }
+    }
     private void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
     private void OnLook(InputValue value) => lookInput = value.Get<Vector2>();
-    private void OnJump() { if (controller.isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); }
     private void OnSprint(InputValue value) => isRunning = value.isPressed;
     private void OnCrouch(InputValue value) => HandleCrouch(value.isPressed);
     private void PlayerLook()
     {
+        if (GameManager.Instance.isPaused) return;
         float mouseX = lookInput.x * mouseSensitivity;
         float mouseY = lookInput.y * mouseSensitivity;
 
