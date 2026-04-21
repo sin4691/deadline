@@ -414,6 +414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9164947739843943938, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4613133371423321715}
+    - targetCorrespondingSourceObject: {fileID: 8484962733244710533, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 39962228982423803}
   m_SourcePrefab: {fileID: 100100000, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
 --- !u!1 &334644184119171539 stripped
 GameObject:
@@ -434,9 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   walkSpeed: 4
   runSpeed: 7
-  crouchSpeed: 2.5
+  crouchSpeed: 1.5
   gravity: -20
-  jumpHeight: 1.2
   footstepRunSounds:
   - {fileID: 8300000, guid: a6774e36f59d95a4a967546033428fe7, type: 3}
   - {fileID: 8300000, guid: 1cf8b6f129e3fd74484520d5f81a2935, type: 3}
@@ -656,6 +658,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1032501698708535636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8484962733244710533, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}
+  m_PrefabInstance: {fileID: 8904894600934066129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &39962228982423803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032501698708535636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f7ccafccd8d3d43a92b16dfdacaddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HideHead
 --- !u!4 &6158964631475151906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3381503785841812467, guid: 866875d7392d53248a8260bf5bc706b1, type: 3}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+using UnityEngine.InputSystem;
 namespace Michsky.UI.Dark
 {
     [DisallowMultipleComponent]
@@ -18,7 +18,7 @@ namespace Michsky.UI.Dark
         public GameObject mainPanelParent;
         public UIDissolveEffect transitionHelper;
         public MainPanelManager mainPanelManager;
-
+        bool isSkipped = false;
         // Settings
         public bool disableSplashScreen;
         public float disableTimer = 0;
@@ -52,7 +52,26 @@ namespace Michsky.UI.Dark
                 InitializeTitles();         
             }
         }
+        void Update()
+        {
+            if (isSkipped) return;
 
+            if (!splashScreen.activeSelf) return;
+            if (Keyboard.current.anyKey.wasPressedThisFrame ||
+                Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                isSkipped = true;
+                StopAllCoroutines();
+                splashScreen.SetActive(false);
+                modalWindowParent.SetActive(true);
+                mainPanelParent.gameObject.SetActive(true);
+                transitionHelper.gameObject.SetActive(true);
+                mainPanelManager.EnableFirstPanel();
+                transitionHelper.location = 0;
+                transitionHelper.DissolveOut();
+                onSplashScreenEnd.Invoke();
+            }
+        }
         public void InitializeTitles()
         {
             if (splashScreenTitles.Count != 0)
