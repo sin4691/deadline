@@ -1,17 +1,19 @@
-using UnityEngine;
+using Michsky.UI.Dark;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using UnityEngine.InputSystem;
 public enum GameState { Playing, Dead, Cleared }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public GameState currentState = GameState.Playing;
     public int itemSpawnCount;
+    public MainPanelManager menuManager;
     public GameObject clearPanel;
-    public GameObject pausePanel;
     public TextMeshProUGUI counterText;
+    public Animator settingsAnimator;
     private Timer timer;
 
     private int currentItemCount = 0;
@@ -83,7 +85,9 @@ public class GameManager : MonoBehaviour
 
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
-        pausePanel.SetActive(isPaused);
+        if (isPaused)
+            menuManager.gameObject.SetActive(true);
         UnityEngine.Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
+   
 }
