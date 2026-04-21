@@ -13,12 +13,11 @@ public class GameManager : MonoBehaviour
     public MainPanelManager menuManager;
     public GameObject clearPanel;
     public TextMeshProUGUI counterText;
-    public Animator settingsAnimator;
     private Timer timer;
 
     private int currentItemCount = 0;
     public bool isPaused = false;
-
+    bool settingsOpen = false;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,7 +32,20 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            TogglePause();
+        {
+            if (isPaused)
+            {
+                if (settingsOpen)
+                {
+                    settingsOpen = false;
+                    menuManager.OpenPanel("Pause");
+                }   
+                else
+                    Resume(); // 퍼즈 닫기
+            }
+            else
+                TogglePause(); // 퍼즈 열기
+        }
     }
     public void SetTotalItemCount(int total)
     {
@@ -89,5 +101,22 @@ public class GameManager : MonoBehaviour
             menuManager.gameObject.SetActive(true);
         UnityEngine.Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
-   
+    public void OpenSettings()
+    {
+        settingsOpen = true;
+        menuManager.OpenPanel("Settings");
+    }
+    public void CloseSettings()
+    {
+        settingsOpen = false;
+        menuManager.OpenPanel("Pause");
+    }
+    public void Resume() 
+    {
+        isPaused = false;
+        settingsOpen = false;
+        Time.timeScale = 1f;
+        menuManager.gameObject.SetActive(false); 
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+    }
 }
