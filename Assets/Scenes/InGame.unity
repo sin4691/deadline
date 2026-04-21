@@ -2577,6 +2577,10 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 2055311501}
+    - target: {fileID: 8411688121425385204, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
