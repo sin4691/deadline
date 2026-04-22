@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using Michsky.UI.Dark;
 public enum GameState { Playing, Dead, Cleared }
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class GameManager : MonoBehaviour
     public int itemSpawnCount;
     public MainPanelManager menuManager;
     public GameObject panels;
-    public GameObject clearPanel;
     public UIDissolveEffect fadeDissolve;
     public TextMeshProUGUI counterText;
     private Timer timer;
@@ -75,7 +73,6 @@ public class GameManager : MonoBehaviour
         // 클리어 처리
         Time.timeScale = 0f;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
-        clearPanel.SetActive(true);
     }
     public void OnRestartButton()
     {

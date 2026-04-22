@@ -354,7 +354,7 @@ MonoBehaviour:
   arriveDistance: 0.3
   walkSpeed: 3.5
   chasePlayerSpeed: 6.5
-  screamSound: {fileID: 8300000, guid: 4c5843028e1640846a24f0bfc9f33523, type: 3}
+  screamSound: {fileID: 8300000, guid: 47dcea8fc66009b45aaf0a9886d2f79e, type: 3}
 --- !u!82 &-691631933585724592
 AudioSource:
   m_ObjectHideFlags: 0
