@@ -461,7 +461,6 @@ MonoBehaviour:
   itemSpawnCount: 0
   menuManager: {fileID: 259471336}
   panels: {fileID: 1066175987}
-  clearPanel: {fileID: 0}
   fadeDissolve: {fileID: 258163118}
   counterText: {fileID: 669048745}
   isPaused: 0
@@ -572,7 +571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &258163114
 RectTransform:
   m_ObjectHideFlags: 0
@@ -626,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 2100000, guid: 1f72c67b0e2431042b100baf259dee7a, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -670,7 +669,7 @@ MonoBehaviour:
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_ColorMode: 2
   m_EffectMaterial: {fileID: 2100000, guid: 1f72c67b0e2431042b100baf259dee7a, type: 2}
-  animationSpeed: 1
+  animationSpeed: 0.5
   mainPanelMode: 0
 --- !u!1 &259471335
 GameObject:
@@ -715,7 +714,7 @@ MonoBehaviour:
     panelButton: {fileID: 0}
     defaultSelected: {fileID: 0}
   settingsHelper: 0
-  editMode: 1
+  editMode: 0
   instantInOnEnable: 0
   currentPanelIndex: 0
   disablePanelAfter: 1
@@ -4776,7 +4775,7 @@ PrefabInstance:
     - target: {fileID: 4681562632151170882, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
       propertyPath: jumpScareSound
       value: 
-      objectReference: {fileID: 8300000, guid: 4c5843028e1640846a24f0bfc9f33523, type: 3}
+      objectReference: {fileID: 8300000, guid: b035f631de033c040ad6db24eee3092c, type: 3}
     - target: {fileID: 4681562632151170882, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
       propertyPath: jumpScareOverlay
       value: 

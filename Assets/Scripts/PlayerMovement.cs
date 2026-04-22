@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
             AudioClip[] clips = isRunning ? footstepRunSounds : footstepWalkSounds;
             if (clips != null && clips.Length > 0)
             {
-                audioSource.volume = isCrouching ? 0.2f : 1f;
+                audioSource.volume = isCrouching ? 0.2f : isRunning ? 1f : 0.5f;
                 audioSource.PlayOneShot(clips[Random.Range(0, clips.Length)]);
             }
 
@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = jumpScarePoint.position;
         transform.rotation = jumpScarePoint.rotation; // 방향도 맞추기
         velocity = Vector3.zero;
-        xRotation = -20f;
+        xRotation = -10f;
         cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         // Bite 애니메이션 실행
         jumpScareAnimator.SetTrigger("Bite");
