@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameState currentState = GameState.Playing;
     public int itemSpawnCount;
     public MainPanelManager menuManager;
+    public GameObject panels;
     public GameObject clearPanel;
     public TextMeshProUGUI counterText;
     private Timer timer;
@@ -33,19 +34,24 @@ public class GameManager : MonoBehaviour
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if (isPaused)
-            {
-                if (settingsOpen)
-                {
-                    settingsOpen = false;
-                    menuManager.OpenPanel("Pause");
-                }   
-                else
-                    Resume(); // 퍼즈 닫기
-            }
-            else
-                TogglePause(); // 퍼즈 열기
+            if (!isPaused)
+                TogglePause(); // 열기만 담당
         }
+        //if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        //{
+        //    if (isPaused)
+        //    {
+        //        if (settingsOpen)
+        //        {
+        //            settingsOpen = false;
+        //            menuManager.OpenPanel("Pause");
+        //        }   
+        //        else
+        //            Resume(); // 퍼즈 닫기
+        //    }
+        //    else
+        //        TogglePause(); // 퍼즈 열기
+        //}
     }
     public void SetTotalItemCount(int total)
     {
@@ -94,11 +100,11 @@ public class GameManager : MonoBehaviour
     public void TogglePause()
     {
         if (currentState != GameState.Playing) return;
-
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
+        panels.SetActive(isPaused);
         if (isPaused)
-            menuManager.gameObject.SetActive(true);
+            menuManager.EnableFirstPanel();
         UnityEngine.Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
     public void OpenSettings()
@@ -116,7 +122,7 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         settingsOpen = false;
         Time.timeScale = 1f;
-        menuManager.gameObject.SetActive(false); 
+        panels.SetActive(false);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 }
