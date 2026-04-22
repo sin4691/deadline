@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using Michsky.UI.Dark;
 public enum GameState { Playing, Dead, Cleared }
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public MainPanelManager menuManager;
     public GameObject panels;
     public GameObject clearPanel;
+    public UIDissolveEffect fadeDissolve;
     public TextMeshProUGUI counterText;
     private Timer timer;
 
@@ -29,6 +30,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
         timer = GetComponent<Timer>();
         timer.StartTimer();
+    }
+    void Start()
+    {
+        fadeDissolve.location = 0f;
+        fadeDissolve.DissolveOut();
     }
     private void Update()
     {
