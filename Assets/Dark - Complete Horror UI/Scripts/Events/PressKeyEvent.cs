@@ -11,14 +11,22 @@ namespace Michsky.UI.Dark
 
         // Events
         public UnityEvent onPressEvent;
+        bool firstFrame = true;
 
         void Start()
         {
             hotkey.Enable();
+            hotkey.Reset();
         }
 
         void Update()
         {
+            if (firstFrame)
+            {
+                firstFrame = false;
+                return;
+            }
+
             if (hotkey.triggered)
                 onPressEvent.Invoke();
         }

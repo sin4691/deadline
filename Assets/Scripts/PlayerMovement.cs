@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Look")]
     [SerializeField] private Transform cam;
-    [SerializeField] private float mouseSensitivity = 0.1f;
+    public float mouseSensitivity = 0.1f;
     private Vector2 lookInput;
     private float xRotation = 0f;
 

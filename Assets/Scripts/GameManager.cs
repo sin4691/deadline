@@ -35,23 +35,8 @@ public class GameManager : MonoBehaviour
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (!isPaused)
-                TogglePause(); // 열기만 담당
+                TogglePause();
         }
-        //if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        //{
-        //    if (isPaused)
-        //    {
-        //        if (settingsOpen)
-        //        {
-        //            settingsOpen = false;
-        //            menuManager.OpenPanel("Pause");
-        //        }   
-        //        else
-        //            Resume(); // 퍼즈 닫기
-        //    }
-        //    else
-        //        TogglePause(); // 퍼즈 열기
-        //}
     }
     public void SetTotalItemCount(int total)
     {
