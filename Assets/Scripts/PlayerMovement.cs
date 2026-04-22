@@ -40,7 +40,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cameraCrouchY = 0.7f;
     [SerializeField] private float crouchSmoothSpeed = 10f;
 
+    [Header("Jumpscare")]
+    [SerializeField] private Transform jumpScarePoint;
+    [SerializeField] private AudioClip jumpScareSound;
+    public Animator jumpScareAnimator;
     public float noiseRadius = 0f;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -62,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Monster"))
         {
-            GameManager.Instance.PlayerDied();
+            StartCoroutine(JumpScare());
         }
     }
     private void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
@@ -138,5 +143,27 @@ public class PlayerMovement : MonoBehaviour
             footstepTimer = isCrouching ? footstepInterval * 1.5f : 
                 isRunning ? runFootstepInterval : footstepInterval;
         }
+    }
+    IEnumerator JumpScare()
+    {
+        GameManager.Instance.isPaused = true;
+
+        // 플레이어 점프스케어 공간으로 이동
+        controller.enabled = false;
+        transform.position = jumpScarePoint.position;
+        transform.rotation = jumpScarePoint.rotation; // 방향도 맞추기
+        velocity = Vector3.zero;
+        xRotation = -20f;
+        cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // Bite 애니메이션 실행
+        jumpScareAnimator.SetTrigger("Bite");
+        // 사운드
+        if (jumpScareSound != null)
+            audioSource.PlayOneShot(jumpScareSound);
+        // 애니메이션 재생되는 동안 대기
+        yield return new WaitForSeconds(1.7f);
+
+        GameManager.Instance.isPaused = false;
+        GameManager.Instance.PlayerDied();
     }
 }
