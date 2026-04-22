@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] footstepWalkSounds;
     [SerializeField] private float footstepInterval = 0.5f;
     [SerializeField] private float runFootstepInterval = 0.3f;
-
     private float footstepTimer = 0f;
     private AudioSource audioSource;
     public bool isMoving;
