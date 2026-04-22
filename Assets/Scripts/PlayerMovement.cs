@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] footstepWalkSounds;
     [SerializeField] private float footstepInterval = 0.5f;
     [SerializeField] private float runFootstepInterval = 0.3f;
-
     private float footstepTimer = 0f;
     private AudioSource audioSource;
     public bool isMoving;
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Look")]
     [SerializeField] private Transform cam;
-    [SerializeField] private float mouseSensitivity = 0.1f;
+    public float mouseSensitivity = 0.1f;
     private Vector2 lookInput;
     private float xRotation = 0f;
 
