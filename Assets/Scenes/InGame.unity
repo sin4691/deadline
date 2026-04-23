@@ -4428,9 +4428,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1019589582}
     - target: {fileID: 6629794124303979666, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
+      propertyPath: dropSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5893ac1f75f2bb549bf01b0dc3558f37, type: 3}
+    - target: {fileID: 6629794124303979666, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 2055311501}
+    - target: {fileID: 6629794124303979666, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f1daf67b56896c5409dc57f912e9899c, type: 3}
     - target: {fileID: 8411688121425385204, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.3

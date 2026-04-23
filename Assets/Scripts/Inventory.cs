@@ -10,13 +10,17 @@ public class Inventory : MonoBehaviour
     public InventoryUI inventoryUI;
     public Vector3 handOffset = new Vector3(0.4f, -0.4f, 0.7f);
     public float scrollCooldown = 0.15f;
+    public AudioClip pickupSound;
+    public AudioClip dropSound;
 
+    private AudioSource audioSource;
     private float lastScrollTime;
     private int currentSlotIndex;
     private GameObject currentActiveModel;
     private ItemWorld targetItem;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         for (int i = 0; i < slots.Length; i++)
         {
             inventoryUI.UpdateSlotUI(i, slots[i]);
@@ -65,6 +69,8 @@ public class Inventory : MonoBehaviour
         float playerYaw = transform.eulerAngles.y;
         Quaternion spawnLot = Quaternion.Euler(slots[currentSlotIndex].itemPrefab.transform.eulerAngles.x, playerYaw, 0);
         Instantiate(slots[currentSlotIndex].itemPrefab, spawnPos, spawnLot);
+        if (dropSound != null)
+            audioSource.PlayOneShot(dropSound);
         slots[currentSlotIndex] = null;
         inventoryUI.UpdateSlotUI(currentSlotIndex, null);
         UpdateHandleModel();
@@ -149,5 +155,8 @@ public class Inventory : MonoBehaviour
         inventoryUI.UpdateSlotUI(index, slots[index]);
         if (index == currentSlotIndex)
             UpdateHandleModel();
+
+        if (pickupSound != null)
+            audioSource.PlayOneShot(pickupSound);
     }
 }
