@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCrouch(InputValue value) => HandleCrouch(value.isPressed);
     private void PlayerLook()
     {
-        if (GameManager.Instance.isPaused) return;
+        if (GameManager.Instance.isPaused|| GameManager.Instance.currentState != GameState.Playing) return;
         float mouseX = lookInput.x * mouseSensitivity;
         float mouseY = lookInput.y * mouseSensitivity;
 
