@@ -10,11 +10,13 @@ public class SettingsManager : MonoBehaviour
     public UnityEngine.UI.Slider fovSlider;
     public UnityEngine.UI.Slider sensitivitySlider;
     public UnityEngine.UI.Slider masterVolumeSlider;
-
     void Start()
     {
-        foreach (var component in globalVolume.sharedProfile.components)
-            Debug.Log(component.GetType().Name);
+        if (globalVolume != null)
+        {
+            foreach (var component in globalVolume.sharedProfile.components)
+                Debug.Log(component.GetType().Name);
+        }
         // OnValueChanged 임시 제거
         brightnessSlider.onValueChanged.RemoveAllListeners();
         fovSlider.onValueChanged.RemoveAllListeners();
