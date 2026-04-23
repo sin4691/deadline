@@ -18,6 +18,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         StartTimer();
+        timerText.gameObject.SetActive(PlayerPrefs.GetString("TimerDarkUISwitch", "false") == "true");
     }
     void Update()
     {
@@ -27,5 +28,9 @@ public class Timer : MonoBehaviour
         int min = (int)(elapsed / 60);
         int sec = (int)(elapsed % 60);
         timerText.text = $"{min:00}:{sec:00}";
+    }
+    public void SetTimerVisible(bool value)
+    {
+        timerText.gameObject.SetActive(value);
     }
 }
