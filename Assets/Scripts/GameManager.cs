@@ -1,4 +1,5 @@
 using Michsky.UI.Dark;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,10 +11,10 @@ public class GameManager : MonoBehaviour
     public GameState currentState = GameState.Playing;
     public int itemSpawnCount;
     public MainPanelManager menuManager;
+    public GameObject clearPanel;
     public GameObject panels;
     public UIDissolveEffect fadeDissolve;
     public TextMeshProUGUI counterText;
-    private Timer timer;
 
     private int currentItemCount = 0;
     public bool isPaused = false;
@@ -26,13 +27,13 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        timer = GetComponent<Timer>();
-        timer.StartTimer();
+        
     }
     void Start()
     {
         fadeDissolve.location = 0f;
         fadeDissolve.DissolveOut();
+        Timer.Instance.StartTimer();
     }
     private void Update()
     {
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
         // 클리어 처리
         Time.timeScale = 0f;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
+        clearPanel.SetActive(true);
     }
     public void OnRestartButton()
     {
@@ -98,12 +100,10 @@ public class GameManager : MonoBehaviour
     public void OpenSettings()
     {
         settingsOpen = true;
-        menuManager.OpenPanel("Settings");
     }
     public void CloseSettings()
     {
         settingsOpen = false;
-        menuManager.OpenPanel("Pause");
     }
     public void Resume() 
     {
