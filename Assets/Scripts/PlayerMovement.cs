@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip jumpScareSound;
     public Animator jumpScareAnimator;
 
+    [Header("Flashlight")]
+    [SerializeField] private FlashLight flashLight;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         HandleCrouch(false);
         Cursor.lockState = CursorLockMode.Locked;
-    }
+    }   
 
     void Update()
     {
@@ -152,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.isPaused = true;
         HandleCrouch(false);
+        if (flashLight != null) flashLight.TurnOff();
         // 플레이어 점프스케어 공간으로 이동
         controller.enabled = false;
         transform.position = jumpScarePoint.position;
@@ -161,13 +164,44 @@ public class PlayerMovement : MonoBehaviour
         cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         // Bite 애니메이션 실행
         jumpScareAnimator.SetTrigger("Bite");
+        StartCoroutine(CameraShake(1.7f, 0.03f));
         // 사운드
         if (jumpScareSound != null)
             audioSource.PlayOneShot(jumpScareSound);
         // 애니메이션 재생되는 동안 대기
         yield return new WaitForSeconds(1.7f);
+        float suckDuration = 0.1f;
+        float elapsed = 0f;
+        Vector3 startPos = transform.position;
+        float startFOV = Camera.main.fieldOfView;
 
+        while (elapsed < suckDuration)
+        {
+            elapsed += Time.unscaledDeltaTime; 
+            float t = elapsed / suckDuration;
+            transform.position = Vector3.Lerp(startPos, startPos +
+                (transform.forward + transform.right * -0.4f).normalized * 0.3f, t);
+            Camera.main.fieldOfView = Mathf.Lerp(startFOV, 20f, t);
+
+            yield return null;
+        }
         GameManager.Instance.isPaused = false;
         GameManager.Instance.PlayerDied();
+    }
+    IEnumerator CameraShake(float duration, float magnitude)
+    {
+        Vector3 originalPos = cam.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            cam.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+            yield return null;
+        }
+
+        cam.localPosition = originalPos;
     }
 }
