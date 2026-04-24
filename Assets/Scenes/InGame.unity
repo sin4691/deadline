@@ -1000,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000095823416, y: -23.71521}
+  m_AnchoredPosition: {x: 0.000095823416, y: -23.715332}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &560326239
@@ -3047,6 +3047,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b92ee7b69789d94cb3566ad78c5abac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+--- !u!114 &1482007635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7760214066735158862, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
+  m_PrefabInstance: {fileID: 1930641284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c1815f274205148a7522e978ffcbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashLight
 --- !u!1001 &1512315223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4368,6 +4379,10 @@ PrefabInstance:
       value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4681562632151170882, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
+      propertyPath: flashLight
+      value: 
+      objectReference: {fileID: 1482007635}
+    - target: {fileID: 4681562632151170882, guid: 426de0a4fb9e63044bb3d66a38624aec, type: 3}
       propertyPath: jumpScarePoint
       value: 
       objectReference: {fileID: 826575350}
@@ -4459,6 +4474,10 @@ PrefabInstance:
     - target: {fileID: 8413359964030628434, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
       propertyPath: m_Name
       value: Station_Ceiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906835101215015725, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
+      propertyPath: m_Intensity
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9190038019040192744, guid: 0f425cec687202e4b9ba4944203cbd01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5454,7 +5473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1306448989363453913, guid: ff0e82664cabdb240b51cc01da8ea14c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14.911499
+      value: 14.911621
       objectReference: {fileID: 0}
     - target: {fileID: 1498235231949683036, guid: ff0e82664cabdb240b51cc01da8ea14c, type: 3}
       propertyPath: m_AnchorMax.y
