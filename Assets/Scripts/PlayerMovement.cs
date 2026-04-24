@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] footstepWalkSounds;
     [SerializeField] private float footstepInterval = 0.5f;
     [SerializeField] private float runFootstepInterval = 0.3f;
+    public float noiseRadius = 0f;
     private float footstepTimer = 0f;
     private AudioSource audioSource;
     public bool isMoving;
@@ -44,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform jumpScarePoint;
     [SerializeField] private AudioClip jumpScareSound;
     public Animator jumpScareAnimator;
-    public float noiseRadius = 0f;
 
     void Start()
     {
@@ -73,7 +73,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value) => moveInput = value.Get<Vector2>();
     private void OnLook(InputValue value) => lookInput = value.Get<Vector2>();
     private void OnSprint(InputValue value) => isRunning = value.isPressed;
-    private void OnCrouch(InputValue value) => HandleCrouch(value.isPressed);
+    private void OnCrouch(InputValue value)
+    {
+        if (GameManager.Instance.isPaused) return;
+        HandleCrouch(value.isPressed);
+    }
     private void PlayerLook()
     {
         if (GameManager.Instance.isPaused|| GameManager.Instance.currentState != GameState.Playing) return;
@@ -147,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator JumpScare()
     {
         GameManager.Instance.isPaused = true;
-
+        HandleCrouch(false);
         // 플레이어 점프스케어 공간으로 이동
         controller.enabled = false;
         transform.position = jumpScarePoint.position;
