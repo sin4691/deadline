@@ -154,6 +154,9 @@ public class PlayerMovement : MonoBehaviour
     {
         GameManager.Instance.isPaused = true;
         HandleCrouch(false);
+        Vector3 camPos = cam.localPosition;
+        camPos.y = cameraStandY;
+        cam.localPosition = camPos;
         if (flashLight != null) flashLight.TurnOff();
         // 플레이어 점프스케어 공간으로 이동
         controller.enabled = false;
