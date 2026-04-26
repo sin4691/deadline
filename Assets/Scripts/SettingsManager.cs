@@ -62,7 +62,7 @@ public class SettingsManager : MonoBehaviour
     public void SetFOV(float value)
     {
         PlayerPrefs.SetFloat("FOV", value);
-        if (Camera.main != null)
+        if (Camera.main != null && playerMovement != null)
             Camera.main.fieldOfView = value;
     }
 
