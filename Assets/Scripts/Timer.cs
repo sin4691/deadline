@@ -18,7 +18,9 @@ public class Timer : MonoBehaviour
     void Start()
     {
         StartTimer();
-        timerText.gameObject.SetActive(PlayerPrefs.GetString("TimerDarkUISwitch", "false") == "true");
+        //timerText.gameObject.SetActive(PlayerPrefs.GetString("TimerDarkUISwitch", "false") == "true");
+        string saved = PlayerPrefs.GetString("TimerDarkUISwitch", "false");
+        timerText.gameObject.SetActive(saved == "true");
     }
     void Update()
     {

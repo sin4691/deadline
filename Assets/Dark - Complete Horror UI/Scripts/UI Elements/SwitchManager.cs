@@ -27,6 +27,7 @@ namespace Michsky.UI.Dark
 
         void Start()
         {
+            Debug.Log("Timer switch value: " + PlayerPrefs.GetString("TimerDarkUISwitch"));
             try
             {
                 if (switchAnimator == null)
