@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 155627128}
   - component: {fileID: 155627129}
   - component: {fileID: 155627130}
+  - component: {fileID: 155627131}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -478,6 +479,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   timerText: {fileID: 560326239}
+--- !u!114 &155627131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155627125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d1dd6b312e8d049b6703d97201ecc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsApplier
+  playerMovement: {fileID: 1482007632}
 --- !u!1 &240788106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4043,7 +4057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7946209030339133463, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: invokeAtStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7946209030339133463, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: onEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4079,11 +4093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7946209030339133463, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: onEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7946209030339133463, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: offEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8009376236006293852, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: m_Alpha

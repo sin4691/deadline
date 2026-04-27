@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         // 클리어 처리
         Time.timeScale = 0f;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.visible = true;
         clearPanel.SetActive(true);
     }
     public void OnRestartButton()
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
         if (isPaused)
             menuManager.EnableFirstPanel();
         UnityEngine.Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = isPaused;
     }
     public void OpenSettings()
     {
@@ -112,5 +114,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         panels.SetActive(false);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
     }
 }
