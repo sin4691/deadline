@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentState: 0
-  itemSpawnCount: 0
   menuManager: {fileID: 259471336}
   clearPanel: {fileID: 6177649915556979047}
   panels: {fileID: 1066175987}
@@ -3874,6 +3873,30 @@ PrefabInstance:
     - target: {fileID: 5777138677788463886, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -32.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777138677788463890, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
+      propertyPath: isOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777138677788463890, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
+      propertyPath: saveValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777138677788463890, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
+      propertyPath: switchTag
+      value: Fullscreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777138677788463890, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
+      propertyPath: invokeAtStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777138677788463890, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
+      propertyPath: onEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777138677788463890, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
+      propertyPath: offEvents.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5789748390511591833, guid: 76d1c3c0d0302454f9572fd903df4931, type: 3}
       propertyPath: m_AnchorMax.x

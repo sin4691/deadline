@@ -14,6 +14,9 @@ public class MonsterAI : MonoBehaviour
     [SerializeField] private float walkSpeed = 3.5f;
     [SerializeField] private float chasePlayerSpeed = 6.5f;
     [SerializeField] private AudioClip screamSound;
+    [SerializeField] private float walkFootstepVolume = 1f;
+    [SerializeField] private float runFootstepVolume = 1.5f;
+    [SerializeField] private float screamVolume = 1.5f;
 
     private float footstepTimer = 0f;
     private float waitTimer = 0f;
@@ -150,7 +153,7 @@ public class MonsterAI : MonoBehaviour
 
         anim.SetTrigger("Scream");
         if (audioSource != null && screamSound != null)
-            audioSource.PlayOneShot(screamSound);
+            audioSource.PlayOneShot(screamSound, screamVolume);
 
         yield return new WaitForSeconds(1f);
 
@@ -169,7 +172,7 @@ public class MonsterAI : MonoBehaviour
 
         anim.SetTrigger("Scream");
         if (audioSource != null && screamSound != null)
-            audioSource.PlayOneShot(screamSound);
+            audioSource.PlayOneShot(screamSound, screamVolume);
         yield return new WaitForSeconds(1f);
 
         isScreaming = false;
@@ -195,7 +198,9 @@ public class MonsterAI : MonoBehaviour
         {
             if (footstepSounds != null && footstepSounds.Length > 0)
             {
+                bool isRunning = speed >= chasePlayerSpeed * 0.8f;
                 audioSource.clip = footstepSounds[Random.Range(0, footstepSounds.Length)];
+                audioSource.volume = isRunning ? runFootstepVolume : walkFootstepVolume;
                 audioSource.Play();
             }
 

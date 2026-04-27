@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(CameraShake(1.7f, 0.03f));
         // 사운드
         if (jumpScareSound != null)
-            audioSource.PlayOneShot(jumpScareSound);
+            audioSource.PlayOneShot(jumpScareSound,5f);
         // 애니메이션 재생되는 동안 대기
         yield return new WaitForSeconds(1.7f);
         float suckDuration = 0.1f;
