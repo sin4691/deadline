@@ -26,7 +26,7 @@ public class SettingsManager : MonoBehaviour
         brightnessSlider.value = PlayerPrefs.GetFloat("Brightness", 0f);
         fovSlider.value = PlayerPrefs.GetFloat("FOV", 70f);
         sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity", 75f);
-        masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 100f);
+        masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 70f);
 
 
         // °ª Àû¿ë

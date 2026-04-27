@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public GameState currentState = GameState.Playing;
-    public int itemSpawnCount;
     public MainPanelManager menuManager;
     public GameObject clearPanel;
     public GameObject panels;
     public UIDissolveEffect fadeDissolve;
     public TextMeshProUGUI counterText;
 
+    private int itemSpawnCount;
     private int currentItemCount = 0;
     public bool isPaused = false;
     bool settingsOpen = false;
@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        panels.SetActive(true);
+        panels.SetActive(false);
+
         fadeDissolve.location = 0f;
         fadeDissolve.DissolveOut();
         Timer.Instance.StartTimer();

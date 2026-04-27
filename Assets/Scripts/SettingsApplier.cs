@@ -6,6 +6,8 @@ public class SettingsApplier : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Timer: " + PlayerPrefs.GetString("TimerDarkUISwitch"));
+        Debug.Log("Fullscreen: " + PlayerPrefs.GetString("FullscreenDarkUISwitch"));
         Camera.main.fieldOfView = PlayerPrefs.GetFloat("FOV", 70f);
         AudioListener.volume = PlayerPrefs.GetFloat("MasterVolume", 100f) / 100f;
         if (playerMovement != null)

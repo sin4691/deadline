@@ -355,6 +355,9 @@ MonoBehaviour:
   walkSpeed: 3.5
   chasePlayerSpeed: 6.5
   screamSound: {fileID: 8300000, guid: 47dcea8fc66009b45aaf0a9886d2f79e, type: 3}
+  walkFootstepVolume: 15
+  runFootstepVolume: 15
+  screamVolume: 2
 --- !u!82 &-691631933585724592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -376,7 +379,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 3
+  MinDistance: 10
   MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
