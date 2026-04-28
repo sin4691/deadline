@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     private int currentItemCount = 0;
     public bool isPaused = false;
     bool settingsOpen = false;
+
+    [Header("Audio Settings")]
+    public AudioSource audioSource;      
+    public AudioClip victoryClip;        
+    public float victoryVolume = 1.0f;   
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -55,7 +61,6 @@ public class GameManager : MonoBehaviour
     {
         currentItemCount++;
         UpdateUI();
-        // 효과음 재생
         if (currentItemCount == itemSpawnCount)
             GameClear();
     }
@@ -74,7 +79,8 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Playing) return;
         currentState = GameState.Cleared;
-        // 클리어 처리
+        if (audioSource != null && victoryClip != null)
+            audioSource.PlayOneShot(victoryClip, victoryVolume);
         Time.timeScale = 0f;
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
