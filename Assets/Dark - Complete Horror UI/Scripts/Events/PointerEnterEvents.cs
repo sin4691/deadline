@@ -14,7 +14,7 @@ namespace Michsky.UI.Dark
             enterEvent.Invoke();
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        public void OnPointerExit (PointerEventData eventData)
         {
             exitEvent.Invoke();
         }
