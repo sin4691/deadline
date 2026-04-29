@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6b81ca2021b1344beee40f045da469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
-  itemSpawnCount: 1
+  itemSpawnCount: 16
   itemPool:
   - {fileID: 11400000, guid: 558e4ed9183f0784cab25f33b299e7ce, type: 2}
   - {fileID: 11400000, guid: b8634f4eebf82494fbc12dc2e60a36f2, type: 2}

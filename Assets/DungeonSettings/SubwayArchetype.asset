@@ -17,8 +17,8 @@ MonoBehaviour:
   BranchCapTileSets: []
   BranchCapType: 1
   BranchingDepth:
-    Min: 2
-    Max: 5
+    Min: 15
+    Max: 20
   BranchCount:
     Min: 3
     Max: 5
