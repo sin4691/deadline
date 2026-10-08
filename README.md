@@ -16,8 +16,15 @@
 - **1인칭 머리 숨기기**: 카메라를 가리는 캐릭터 머리를 Neck 본 스케일로 숨김
 - 설정 저장, 점프스케어, 타이머 게임 루프
 
-## 코드 위치
+## 👀 신재윤 작업만 보기
 
-[`Assets/Scripts`](Assets/Scripts) — `MonsterAI.cs`, `PlayerMovement.cs`, `DungeonNavMesh.cs`, `Inventory.cs`, `HideHead.cs`
+1인 프로젝트입니다. **[`Assets/Scripts`](Assets/Scripts) 폴더의 스크립트는 전부 직접 작성**했습니다. 나머지 폴더는 에셋입니다(Dark Horror UI, DunGen, Subway Modular, polyperfect 등). 아트, 사운드, 던전 생성도 에셋을 사용했습니다.
 
-아트·사운드·던전 생성은 에셋(Dark Horror UI, DunGen, Subway Modular 등)을 사용했습니다.
+| 기능 | 파일 |
+|---|---|
+| 소음 반응 몬스터 AI (FSM) | [`MonsterAI.cs`](Assets/Scripts/MonsterAI.cs) |
+| 이동 상태별 소음 반경 | [`PlayerMovement.cs`](Assets/Scripts/PlayerMovement.cs) |
+| 런타임 NavMesh | [`DungeonNavMesh.cs`](Assets/Scripts/DungeonNavMesh.cs) |
+| 인벤토리·버리기 위치 보정 | [`Inventory.cs`](Assets/Scripts/Inventory.cs) |
+| 1인칭 머리 숨기기 | [`HideHead.cs`](Assets/Scripts/HideHead.cs) |
+| 설정 저장 | [`SettingsManager.cs`](Assets/Scripts/SettingsManager.cs) |
