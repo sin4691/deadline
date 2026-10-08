@@ -150,3 +150,21 @@ x86/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# 외부 에셋 (라이선스상 공개 저장소에서 제외)
+/Assets/Dark - Complete Horror UI/
+/Assets/Dark - Complete Horror UI.meta
+/Assets/DunGen/
+/Assets/DunGen.meta
+/Assets/Flashlight/
+/Assets/Flashlight.meta
+/Assets/MapAssets/
+/Assets/MapAssets.meta
+/Assets/Monsters/
+/Assets/Monsters.meta
+/Assets/PretoriusLab/
+/Assets/PretoriusLab.meta
+/Assets/polyperfect/
+/Assets/polyperfect.meta
+/Assets/Sounds/
+/Assets/Sounds.meta

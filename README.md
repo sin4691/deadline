@@ -18,7 +18,7 @@
 
 ## 👀 신재윤 작업만 보기
 
-1인 프로젝트입니다. **[`Assets/Scripts`](Assets/Scripts) 폴더의 스크립트는 전부 직접 작성**했습니다. 나머지 폴더는 에셋입니다(Dark Horror UI, DunGen, Subway Modular, polyperfect 등). 아트, 사운드, 던전 생성도 에셋을 사용했습니다.
+1인 프로젝트입니다. **[`Assets/Scripts`](Assets/Scripts) 폴더의 스크립트는 전부 직접 작성**했습니다. 아트, 사운드, 던전 생성(DunGen)은 에셋을 사용했습니다(아래 외부 에셋 참고).
 
 | 기능 | 파일 |
 |---|---|
@@ -28,3 +28,9 @@
 | 인벤토리·버리기 위치 보정 | [`Inventory.cs`](Assets/Scripts/Inventory.cs) |
 | 1인칭 머리 숨기기 | [`HideHead.cs`](Assets/Scripts/HideHead.cs) |
 | 설정 저장 | [`SettingsManager.cs`](Assets/Scripts/SettingsManager.cs) |
+
+## 외부 에셋
+
+사용한 에셋: Dark - Complete Horror UI, DunGen, Subway Modular Environment, polyperfect, Fire Extinguisher Pack·HQ Gadgets, 손전등·몬스터 모델, 효과음.
+
+유료·스토어 에셋은 라이선스상 공개 저장소에 둘 수 없어서 저장소에서 뺐습니다. 그래서 받은 그대로는 씬의 모델·UI가 비어 보입니다. 코드는 모두 그대로 있습니다.
